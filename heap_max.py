@@ -1,32 +1,25 @@
-#the main idea of this code- you must  add element to a heap  with "-".
+#the main idea of this code- you must  add element to a heap  with "-".For that i wrote a function 'invert_list'
+def invert_list(a):
+	for i in range(len(a)):
+		a[i]=a[i]*-1
 
-
-a=[-5,-4,-3,-2,-1]
 
 def shuffle(i):
-	print(a[i//2]>a[i])
 	while (i>1) and (a[i//2]>a[i]):
-		print(i)
-		print(a[i],a[i//2])
 		x=a[i]
 		a[i]=a[i//2]
 		a[i//2]=x
-		print(a[i],a[i//2])
 		i=i//2
 def insert(a,n):
 	a.append(n)
-	print(a)
-	print(a[len(a)-1])
 	shuffle(len(a)-1)
 def peek_max(a):
-	print(abs(a[0]))
+	print('max',abs(a[0]))
 
 def shuffle_down(i):
-	print('heap',i,a[i])
 	j=0
 	n=len(a)-1
 	while (2*i<=n):
-		print('heap2',a[i])
 		j=i
 		if abs((a[2*i])<abs(a[j])):
 			j=2*i
@@ -41,13 +34,19 @@ def shuffle_down(i):
 		a[j]=x
 		i=j
 		
-def ex_min():
+def ex_max():
+	print('remove max.element')
 	a[0]=a[len(a)-1]
 	a.pop(len(a)-1)
 	shuffle_down(0)
 
 
-peek_max(a)
-ex_min()
-print(a)
-peek_max(a)
+
+
+if __name__=='__main__':
+	a=[5,4,3,2,1]
+	print(a)
+	invert_list(a)
+	peek_max(a)
+	ex_max()
+	peek_max(a)
