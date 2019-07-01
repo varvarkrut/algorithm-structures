@@ -2,7 +2,7 @@ a=[1,10,15,20,13,16,19]
 x=0
 def shuffle(i):
 	print(a[i//2]>a[i])
-	while (i>1) and (a[i//2]>a[i]):
+	while (i>0) and (a[i//2]>a[i]):
 		print(i)
 		print(a[i],a[i//2])
 		x=a[i]
