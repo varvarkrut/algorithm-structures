@@ -1,3 +1,9 @@
+def invert_a(a):
+	for i in range(len(a)):
+		a[i]=a[i]*-1
+
+
+
 def shake_up(i):
 	while (i>0) and (a[i//2]>a[i]):
 		x=a[i]
@@ -48,5 +54,6 @@ if __name__=='__main__':
 	insert(a,500)
 	insert(a,-3)
 	insert(a,100000)
+	invert_a(a)
 	print(a)
 	peek_max(a)
