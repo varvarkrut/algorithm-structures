@@ -1,15 +1,10 @@
-def shuffle(a,i):
+def sift_up(a,i):
     if i%2==1:
         while (i>0) and (a[i//2]>a[i]):
-            print('chet')
-            print(a[i//2],a[i])
             a[i],a[i//2]=a[i//2],a[i]
             i=i//2
     elif i%2==0:
-        print('here')
-        print(a[i-1//2],a[i],i)
         while (i>0) and (a[(i-1)//2]>a[i]):
-            print('nechet')
             a[i],a[(i-1)//2]=a[(i-1)//2],a[i]
             i=(i-1)//2
 
@@ -18,28 +13,46 @@ def shuffle(a,i):
 
 def insert(a,n):
     a.append(n)
-    shuffle(len(a)-1)
+    sift_up(len(a)-1)
 def peek_min(a):
     print(a[0])
 
-def shuffle_down(i):
+def sift_down(a,i):
     j=0
     n=len(a)-1
-    while (2*i<=n):
+    while ((2*i)+1<=n):
+        '''print(a1'i=,')'''
         j=i
-        if (a[2*i]<a[j]):
-            j=2*i
-        if (2*i+1<=n) and (a[(2*i)+1]<a[j]):
+        if (a[(2*i)+1]<a[j]):
             j=(2*i)+1
+        if ((2*i)+2<=n) and (a[(2*i)+2]<a[j]):
+            j=(2*i)+2
         if i==j:
             break
-        x=a[i]
-        a[i]=a[j]
-        a[j]=x
+        a[i],a[j]=a[j],a[i]
         i=j
         
 def ex_min():
     print(a[0])
     a[0]=a[len(a)-1]
     a.pop(len(a)-1)
-    shuffle_down(0)
+    sift_down(0)
+
+def heapify(a):
+    for i in range(0,len(a)):
+        sift_up(a,i)
+
+
+def heapify2(a):
+    for i in reversed(range(0,len(a))):
+        sift_down(a,i)
+
+
+
+
+a=[0,15,21,-3,5,-10,-17]
+
+
+heapify2(a)
+
+print(a)
