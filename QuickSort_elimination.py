@@ -1,11 +1,10 @@
 def QuickSort(a, l, r):
-    if l >= r:
-        return
-    z = Partition(a, l, r)
-    m = z[0]
-    d = z[1]
-    QuickSort(a, l, m)
-    l=d
+    while l<r:
+        z = Partition(a, l, r)
+        m = z[0]
+        d = z[1]
+        QuickSort(a, l, m)
+        l=d
 
 
 def Partition(a, l, r):
