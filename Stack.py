@@ -1,4 +1,4 @@
-        return len(self.items)
+
 
 
 
@@ -19,5 +19,5 @@ def IsBalanced(b):
         return(a.pop()+1)
 
 b=str(input())
-'''b='{[}'''
+
 print(IsBalanced(b))
